@@ -1,60 +1,60 @@
-
 import unittest
 from animal import Animal
 
 class Test_animal(unittest.TestCase):
-    def test_animal_cat(self):
-        animal1 = Animal("cat")
-        self.assertEqual(animal1.name, "Seymour")
 
-    def test_animal_dog(self):
-        animal1 = Animal("dog")
-        self.assertEqual(animal1.name, "Spot")   
+    def test_default_name_cat(self):
+        cat = Animal("cat")
+        pass
+        self.assertEqual(cat.name, "Seymour")
 
-    def test_animal_name(self):
-        animal1 = Animal()
-        self.assertEqual(animal1.name, self.name)
+    def test_default_name_dog(self):
+        dog = Animal("dog")
+        pass
+        self.assertEqual(dog.name, "Spot")
 
-    def test_animal_speakC(self):
+    def test_provided_name(self):
+        assigned_name = "Killer"
+        dog = Animal("dog")
+        dog.name = assigned_name
+        pass
+        self.assertEqual(dog.name, assigned_name)
+
+    def test_cat_speak(self):
         cat1 = Animal("cat")
-        cat1.size= "small"
-        words1 = cat1.speak
+        cat1.size = "small"
+        words1 = cat1.speak()
         self.assertEqual(words1, "meow")
 
         cat2 = Animal("cat")
-        cat2.size= "medium"
-        words2 = cat2.speak
-        self.assertEqual(words2, "MEOW")
+        cat2.size = "medium"
+        words2 = cat2.speak()
+        self.assertEqual(words2, "MEOW!")
 
-
-    def test_animal_speakD(self):
+    def test_dog_speak(self):
         dog1 = Animal("dog")
-        dog1.size= "small"
-        words1 = dog1.speak
+        dog1.size = "small"
+        words1 = dog1.speak()
         self.assertEqual(words1, "bow wow")
 
         dog2 = Animal("dog")
-        dog2.size= "medium"
-        words2 = dog2.speak
+        dog2.size = "medium"
+        words2 = dog2.speak()
         self.assertEqual(words2, "Ruff ruff")
-        
+
         dog3 = Animal("dog")
-        dog3.size= "large"
-        words3 = dog3.speak
+        dog3.size = "notsmallormedium"
+        words3 = dog3.speak()
         self.assertEqual(words3, "arf arf")
 
-  
+    def test_age(self):
+        dog1 = Animal("dog")
+        dog1.age = 9
+        desc1 = dog1.describe()
+        self.assertEqual(desc1, f"{dog1.name} is young")
 
-    def test_animal_age(self):
-        animal1 = Animal()
-        animal1.size = < 10
-        self.describe(self.name, "is young")
+        dog2 = Animal("dog")
+        dog2.age = 10
+        desc2 = dog2.describe()
+        self.assertEqual(desc2, f"{dog2.name} is old")
 
-        animal1 = Animal()
-        animal1.size = > 10
-        self.describe(self.name, "is old")
-
-
-
-
-    
